@@ -2,9 +2,13 @@ from flask import Flask,render_template,request
 import pickle
 import pandas as pd
 import numpy as np
+import joblib
+
+
+
 
 app=Flask(__name__)
-model=pickle.load(open('RandomForestRegressionModel.pkl','rb'))
+model=joblib.load('RandomForestRegressionModel.pkl')
 car=pd.read_csv('cleaned_car.csv')
 
 @app.route('/')
